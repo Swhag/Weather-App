@@ -13,7 +13,21 @@
 
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
-  <body></body>
+  <body>
+    <main id="main" class="background-img">
+      <section class="content">
+        <h1 class="logo">Simple Weather App</h1>
+
+        <div id="weather-info">
+          <div class="description"></div>
+          <div class="city"></div>
+          <div class="date"></div>
+          <div class="time"></div>
+          <div class="temp"></div>
+        </div>
+      </section>
+    </main>
+  </body>
 
   <!-- JQuery -------------------------------------- -->
   <script
