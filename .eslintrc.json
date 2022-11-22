@@ -12,10 +12,12 @@
     "sourceType": "module"
   },
   "rules": {
-    "prettier/prettier": ["error"],
-    "arrow-body-style": "off",
-    "prefer-arrow-callback": "off",
-    "no-plusplus": [2, { "allowForLoopAfterthoughts": true }]
-    // "prettier/prettier": ["error", { "singleQuote": true }],
-  }
+    "prettier/prettier": "warn",
+    "no-unused-vars": "warn",
+    "no-console": "off",
+    "func-names": "off",
+    "object-shorthand": "off",
+    "class-methods-use-this": "off",
+    "no-plusplus": "off",
+    "no-param-reassign": "off",
 }
