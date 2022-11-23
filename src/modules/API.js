@@ -1,9 +1,9 @@
 const APIkey = '46db5029dab2cdfb42a90e1bce896b95';
-let cityName;
-let units;
+// let cityName;
+// let units;
 
-cityName = 'New York';
-units = 'imperial';
+// cityName = 'New York';
+// units = 'imperial';
 
 let lat;
 let lon;
@@ -13,11 +13,11 @@ lon = -74.006;
 
 // ---------------------------------------------
 
-function buildWeatherRequest() {
+function buildWeatherRequest(cityName, units) {
   return `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=${units}&APPID=${APIkey}`;
 }
 
-function buildForecastRequest() {
+function buildForecastRequest(cityName, units) {
   return `http://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=${units}&appid=${APIkey}`;
 }
 
@@ -32,6 +32,7 @@ async function getForecastData(url) {
   const response = await fetch(url);
   const ForecastData = await response.json();
 
+  console.log(ForecastData);
   return ForecastData;
 }
 

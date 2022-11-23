@@ -1,7 +1,8 @@
-import { format, addDays, parseISO, fromUnixTime } from 'date-fns';
+import { fromUnixTime } from 'date-fns';
 
-function formatDate(unix, dateFormat = 'full') {
-  const date = fromUnixTime(unix).toUTCString();
+function formatDate(offset, dateFormat = 'full') {
+  const unix = parseInt(Date.now().toString().slice(0, 10));
+  const date = fromUnixTime(unix + offset).toUTCString();
   let dayOfWeek = date.slice(0, 3);
   let dayOfMonth = date.slice(5, 7);
   const month = date.slice(8, 11);
@@ -54,4 +55,39 @@ function formatDate(unix, dateFormat = 'full') {
   return `${dayOfWeek}, ${month} ${dayOfMonth}${suffix} ${year}`;
 }
 
-export { formatDate };
+function formatTime(offset, timeFormat = 'full') {
+  const unix = parseInt(Date.now().toString().slice(0, 10));
+  const date = fromUnixTime(unix + offset).toUTCString();
+  let hour = date.slice(17, 19);
+  const minute = date.slice(20, 22);
+  let amOrPm;
+
+  if (hour > 11) {
+    amOrPm = 'pm';
+  } else {
+    amOrPm = 'am';
+  }
+
+  // change 24hr to 12hr time
+  if (hour > 12) {
+    hour -= 12;
+  }
+
+  // change am times to 12hr time
+  if (hour < 10 && amOrPm === 'am') {
+    hour = hour.slice(1, 2);
+  }
+
+  // midnight formating
+  if (hour === '0') {
+    hour = 12;
+  }
+
+  // return just the hour
+  if (timeFormat === 'hour') {
+    return `${hour} ${amOrPm}`;
+  }
+  return `${hour}:${minute} ${amOrPm}`;
+}
+
+export { formatDate, formatTime };
