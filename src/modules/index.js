@@ -2,17 +2,23 @@ import '../styles/style.css';
 import * as API from './API';
 import * as date from './date';
 
-let cityName;
-let units;
+let cityName = 'New York';
+let units = 'imperial';
 
-cityName = 'Las Vegas';
-units = 'imperial';
+function render() {
+  const searchBar = document.querySelector('.search-box-input');
+  document.addEventListener('submit', (e) => {
+    e.preventDefault();
+    cityName = searchBar.value;
+    console.log(cityName);
+  });
+}
 
-const weatherDescription = document.querySelector('.weather-info-description');
-const cityNameDisplay = document.querySelector('.weather-info-city');
-const dateDisplay = document.querySelector('.weather-info-date');
-const timeDisplay = document.querySelector('.weather-info-time');
-const tempDisplay = document.querySelector('.weather-info-temp');
+const weatherDescription = document.querySelector('.weather-description');
+const cityNameDisplay = document.querySelector('.weather-city');
+const dateDisplay = document.querySelector('.weather-date');
+const timeDisplay = document.querySelector('.weather-time');
+const tempDisplay = document.querySelector('.weather-temp');
 
 async function getWeather() {
   const weatherRequest = API.buildWeatherRequest(cityName, units);
@@ -23,7 +29,7 @@ async function getWeather() {
 
   dateDisplay.textContent = date.formatDate(weatherData.timezone);
   timeDisplay.textContent = date.formatTime(weatherData.timezone);
-  tempDisplay.textContent = `Temp: ${Math.round(weatherData.main.temp)}`;
+  tempDisplay.textContent = `${Math.round(weatherData.main.temp)} °F`;
 
   console.log(weatherData);
 
@@ -35,3 +41,4 @@ async function getWeather() {
 // API.getForecastData(API.buildForecastRequest(cityName, units));
 
 getWeather();
+render();
