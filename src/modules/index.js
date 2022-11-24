@@ -3,13 +3,20 @@ import * as API from './API';
 import * as date from './date';
 import * as dom from './dom';
 
-function render() {
-  dom.getWeatherData();
+function renderPage() {
+  dom.renderWeatherData();
   dom.toggleUnit();
   dom.searchLocation();
-  dom.getWeatherIcon();
 }
 
 // API.getForecastData(API.buildForecastRequest(cityName, units));
 
-render();
+setInterval(() => {
+  dom.showDateTime();
+}, 1000);
+
+setInterval(() => {
+  dom.renderWeatherData();
+}, 1800000);
+
+renderPage();

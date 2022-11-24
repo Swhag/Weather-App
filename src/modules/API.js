@@ -1,9 +1,4 @@
 const APIkey = '46db5029dab2cdfb42a90e1bce896b95';
-// let cityName;
-// let units;
-
-// cityName = 'New York';
-// units = 'imperial';
 
 let lat;
 let lon;
