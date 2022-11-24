@@ -7,6 +7,7 @@ function render() {
   dom.getWeatherData();
   dom.toggleUnit();
   dom.searchLocation();
+  dom.getWeatherIcon();
 }
 
 // API.getForecastData(API.buildForecastRequest(cityName, units));

@@ -6,7 +6,7 @@
   margin: 0;
 }
 html {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 body {
@@ -49,23 +49,22 @@ a {
 }
 
 .content {
-  padding: 40px;
+  padding: 60px 120px;
 }
 
 /* ------------------------------------------------ */
 
 #weather-info {
-  /* border: 1px solid white; */
   color: white;
-
   height: 500px;
-  width: 350px;
+  /* width: 350px; */
 
   display: flex;
   flex-direction: column;
 }
 
 .weather-description {
+  margin-left: -8px;
   font-size: 2.6rem;
   font-weight: 500;
 }
@@ -85,9 +84,14 @@ a {
 }
 
 .weather-temp {
-  margin: 10px 0px;
+  margin: 5px 0px;
   font-size: 3rem;
   font-weight: 900;
+}
+.weather-icon {
+  margin-top: 20px;
+  max-width: 120px;
+  min-width: 120px;
 }
 /* ------------------------------------------------ */
 
@@ -96,7 +100,7 @@ a {
   --height: calc(var(--width) / 3);
   --border-radius: calc(var(--height) / 2);
 
-  display: inline-block;
+  /* display: inline-block; */
   cursor: pointer;
 }
 
