@@ -27,7 +27,6 @@ a {
   height: 100vh;
   position: relative;
   color: #fff;
-  transition: all 0.2s ease-in-out;
   z-index: 10;
 }
 
@@ -91,6 +90,55 @@ a {
   margin-top: 10px;
   font-size: 46px;
   font-weight: 900;
+}
+/* ------------------------------------------------ */
+
+.toggle {
+  --width: 60px;
+  --height: calc(var(--width) / 3);
+  --border-radius: calc(var(--height) / 2);
+
+  display: inline-block;
+  cursor: pointer;
+}
+
+.toggle-input {
+  display: none;
+}
+
+.toggle-fill {
+  position: relative;
+  width: var(--width);
+  height: var(--height);
+  border-radius: var(--border-radius);
+  background: #dddddd;
+  transition: background 0.2s;
+
+  display: flex;
+  justify-content: space-around;
+
+  background: #009578;
+}
+
+.toggle-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: var(--height);
+  width: calc(var(--width) / 2);
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  border-radius: var(--border-radius);
+  transition: transform 0.2s;
+}
+
+.toggle-input:checked ~ .toggle-fill {
+  background: #009578;
+}
+
+.toggle-input:checked ~ .toggle-fill::after {
+  transform: translateX(calc(var(--height) * 1.5));
 }
 /* ------------------------------------------------ */
 

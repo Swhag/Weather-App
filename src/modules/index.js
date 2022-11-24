@@ -11,6 +11,7 @@ function render() {
     e.preventDefault();
     cityName = searchBar.value;
     console.log(cityName);
+    getWeather();
   });
 }
 
@@ -24,7 +25,9 @@ async function getWeather() {
   const weatherRequest = API.buildWeatherRequest(cityName, units);
   const weatherData = await API.getWeatherData(weatherRequest);
 
-  weatherDescription.textContent = weatherData.weather[0].description;
+  weatherDescription.textContent =
+    weatherData.weather[0].description[0].toUpperCase() +
+    weatherData.weather[0].description.substring(1);
   cityNameDisplay.textContent = weatherData.name;
 
   dateDisplay.textContent = date.formatDate(weatherData.timezone);
