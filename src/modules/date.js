@@ -78,7 +78,7 @@ function formatTime(offset, timeFormat = 'full') {
     hour = hour.slice(1, 2);
   }
 
-  // midnight formating
+  // midnight formatting
   if (hour === '0') {
     hour = 12;
   }

@@ -5,6 +5,9 @@
   padding: 0;
   margin: 0;
 }
+html {
+  font-size: 20px;
+}
 
 body {
   font-family: 'Open Sans', sans-serif;
@@ -46,11 +49,7 @@ a {
 }
 
 .content {
-  padding: 30px;
-}
-
-.logo {
-  font-size: 16px;
+  padding: 40px;
 }
 
 /* ------------------------------------------------ */
@@ -67,13 +66,12 @@ a {
 }
 
 .weather-description {
-  font-size: 36px;
+  font-size: 2.6rem;
   font-weight: 500;
 }
 
 .weather-city {
   margin-top: 10px;
-
   font-size: 20px;
 }
 
@@ -83,18 +81,18 @@ a {
 
 .weather-date,
 .weather-time {
-  font-size: 14px;
+  font-size: 0.9rem;
 }
 
 .weather-temp {
-  margin-top: 10px;
-  font-size: 46px;
+  margin: 10px 0px;
+  font-size: 3rem;
   font-weight: 900;
 }
 /* ------------------------------------------------ */
 
 .toggle {
-  --width: 60px;
+  --width: 70px;
   --height: calc(var(--width) / 3);
   --border-radius: calc(var(--height) / 2);
 
@@ -116,6 +114,7 @@ a {
 
   display: flex;
   justify-content: space-around;
+  align-items: center;
 
   background: #009578;
 }
@@ -140,6 +139,12 @@ a {
 .toggle-input:checked ~ .toggle-fill::after {
   transform: translateX(calc(var(--height) * 1.5));
 }
+
+.units {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
 /* ------------------------------------------------ */
 
 .search-box {
