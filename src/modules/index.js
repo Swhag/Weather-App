@@ -9,8 +9,6 @@ function renderPage() {
   dom.searchLocation();
 }
 
-// API.getForecastData(API.buildForecastRequest(cityName, units));
-
 setInterval(() => {
   dom.showDateTime();
 }, 1000);

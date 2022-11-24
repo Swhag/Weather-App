@@ -5,6 +5,7 @@ import * as icons from './icons';
 let cityName = 'New York';
 let units = 'imperial';
 let tempUnits = '°F';
+let speedUnits = 'mi/h';
 let timezone = -18000;
 
 async function renderWeatherData() {
@@ -18,11 +19,11 @@ async function renderWeatherData() {
   timezone = weatherData.timezone;
   showDateTime();
 
-  // console.log(`Temp: ${weatherData.main.temp}`);
-  // console.log(`Feels like ${weatherData.main.feels_like}`);
-  // console.log(`Humidity ${weatherData.main.humidity}`);
+  showFeelsLikeTemp(weatherData.main.feels_like);
+  showHumidity(weatherData.main.humidity);
+  showWindSpeed(weatherData.wind.speed);
 
-  console.log(weatherData);
+  // console.log(weatherData);
 }
 
 function showWeatherDescription(weatherDescription) {
@@ -55,9 +56,11 @@ function toggleUnit() {
     if (units === 'imperial') {
       units = 'metric';
       tempUnits = '°C';
+      speedUnits = 'km/h';
     } else {
       units = 'imperial';
       tempUnits = '°F';
+      speedUnits = 'mi/h';
     }
     renderWeatherData();
   });
@@ -77,5 +80,39 @@ function searchLocation() {
     renderWeatherData();
   });
 }
+
+// -----------------------------------------------------------------
+
+function showFeelsLikeTemp(feelsTemp) {
+  const feelsLikeDisplay = document.querySelector('.feels-like');
+
+  feelsLikeDisplay.textContent = `Feels like: ${Math.round(
+    feelsTemp,
+  )} ${tempUnits}`;
+}
+
+function showHumidity(humidity) {
+  const humidityDisplay = document.querySelector('.humidity');
+  humidityDisplay.textContent = `Humidity: ${humidity} %`;
+}
+
+function showWindSpeed(windSpeed) {
+  const windSpeedDisplay = document.querySelector('.wind-speed');
+  windSpeedDisplay.textContent = `Wind Speed: ${windSpeed} ${speedUnits}`;
+}
+
+function showChanceOfRain(pop) {
+  const popDisplay = document.querySelector('.pop');
+  popDisplay.textContent = `Humidity: ${po} %`;
+}
+
+// -----------------------------------------------------------------
+
+async function renderForecastData() {
+  const forecastRequest = API.buildForecastRequest(cityName, units);
+  const forecastData = await API.getForecastData(forecastRequest);
+}
+
+renderForecastData();
 
 export { renderWeatherData, searchLocation, toggleUnit, showDateTime };

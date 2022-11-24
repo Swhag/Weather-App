@@ -50,6 +50,9 @@ a {
 
 .content {
   padding: 60px 120px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 /* ------------------------------------------------ */
@@ -193,6 +196,18 @@ a {
   background-color: transparent;
 
   cursor: pointer;
+}
+
+/* Side weather info */
+/* ------------------------------------------------ */
+
+#weather-info-side {
+  border: 2px solid white;
+  margin-top: 40px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 /* .error-msg {
