@@ -1,5 +1,5 @@
 import * as API from './API';
-import * as date from './date';
+import * as utils from './utils';
 import * as icons from './icons';
 
 let cityName = 'New York';
@@ -7,6 +7,70 @@ let units = 'imperial';
 let tempUnits = '°F';
 let speedUnits = 'mi/h';
 let timezone = -18000;
+
+function showWeatherDescription(weatherDescription) {
+  const descriptionDisplay = document.querySelector('.weather-description');
+  descriptionDisplay.textContent = utils.capitalize(weatherDescription);
+}
+
+function showName() {
+  const cityNameDisplay = document.querySelector('.weather-city');
+  cityNameDisplay.textContent = utils.capitalize(cityName);
+}
+
+function showDateTime() {
+  const dateDisplay = document.querySelector('.weather-date');
+  const timeDisplay = document.querySelector('.weather-time');
+  dateDisplay.textContent = utils.formatDate(timezone);
+  timeDisplay.textContent = utils.formatTime(timezone);
+  // console.log('time refreshed');
+}
+
+function showTemp(temperature) {
+  const tempDisplay = document.querySelector('.weather-temp');
+  tempDisplay.textContent = `${Math.round(temperature)} ${tempUnits}`;
+}
+
+function showIcon(icon) {
+  const weatherIcon = document.querySelector('.weather-icon');
+  weatherIcon.innerHTML = icons.getIcon(icon);
+}
+
+// -----------------------------------------------------------------
+
+function showFeelsLikeTemp(feelsTemp) {
+  const feelsLikeDisplay = document.querySelector('.feels-like');
+  const feelsLikeIconDIsplay = document.querySelector('.feels-like-icon');
+
+  feelsLikeDisplay.textContent = `${Math.round(feelsTemp)} ${tempUnits}`;
+  feelsLikeIconDIsplay.innerHTML = icons.feelsLikeIcon;
+}
+
+function showHumidity(humidity) {
+  const humidityDisplay = document.querySelector('.humidity');
+  const humidityIconDisplay = document.querySelector('.humidity-icon');
+
+  humidityDisplay.textContent = `${humidity} %`;
+  humidityIconDisplay.innerHTML = icons.humidityIcon;
+}
+
+function showWindSpeed(windSpeed) {
+  const windSpeedDisplay = document.querySelector('.wind-speed');
+  const windSpeedIconDisplay = document.querySelector('.wind-icon');
+
+  windSpeedDisplay.textContent = `${windSpeed} ${speedUnits}`;
+  windSpeedIconDisplay.innerHTML = icons.windIcon;
+}
+
+function showChanceOfRain(pop) {
+  const popDisplay = document.querySelector('.pop');
+  const showPopDisplay = document.querySelector('.pop-icon');
+
+  popDisplay.textContent = `${pop * 100} %`;
+  showPopDisplay.innerHTML = icons.popIcon;
+}
+
+// -----------------------------------------------------------------
 
 async function renderWeatherData() {
   const weatherRequest = API.buildWeatherRequest(cityName, units);
@@ -26,29 +90,17 @@ async function renderWeatherData() {
   // console.log(weatherData);
 }
 
-function showWeatherDescription(weatherDescription) {
-  const descriptionDisplay = document.querySelector('.weather-description');
-  descriptionDisplay.textContent =
-    weatherDescription[0].toUpperCase() + weatherDescription.substring(1);
+async function renderForecastData() {
+  const forecastRequest = API.buildForecastRequest(cityName, units);
+  const forecastData = await API.getForecastData(forecastRequest);
+
+  console.log(forecastData);
+  console.log(forecastData.list[0]);
+
+  showChanceOfRain(forecastData.list[0].pop);
 }
 
-function showName(cityName) {
-  const cityNameDisplay = document.querySelector('.weather-city');
-  cityNameDisplay.textContent = cityName;
-}
-
-function showDateTime() {
-  const dateDisplay = document.querySelector('.weather-date');
-  const timeDisplay = document.querySelector('.weather-time');
-  dateDisplay.textContent = date.formatDate(timezone);
-  timeDisplay.textContent = date.formatTime(timezone);
-  // console.log('time refreshed');
-}
-
-function showTemp(temperature) {
-  const tempDisplay = document.querySelector('.weather-temp');
-  tempDisplay.textContent = `${Math.round(temperature)} ${tempUnits}`;
-}
+// -----------------------------------------------------------------
 
 function toggleUnit() {
   const unitToggle = document.querySelector('.toggle-input');
@@ -66,11 +118,6 @@ function toggleUnit() {
   });
 }
 
-function showIcon(icon) {
-  const weatherIcon = document.querySelector('.weather-icon');
-  weatherIcon.innerHTML = icons.getIcon(icon);
-}
-
 function searchLocation() {
   const searchBar = document.querySelector('.search-box-input');
   document.addEventListener('submit', (e) => {
@@ -78,41 +125,14 @@ function searchLocation() {
     cityName = searchBar.value;
     searchBar.value = '';
     renderWeatherData();
+    renderForecastData();
   });
 }
 
-// -----------------------------------------------------------------
-
-function showFeelsLikeTemp(feelsTemp) {
-  const feelsLikeDisplay = document.querySelector('.feels-like');
-
-  feelsLikeDisplay.textContent = `Feels like: ${Math.round(
-    feelsTemp,
-  )} ${tempUnits}`;
-}
-
-function showHumidity(humidity) {
-  const humidityDisplay = document.querySelector('.humidity');
-  humidityDisplay.textContent = `Humidity: ${humidity} %`;
-}
-
-function showWindSpeed(windSpeed) {
-  const windSpeedDisplay = document.querySelector('.wind-speed');
-  windSpeedDisplay.textContent = `Wind Speed: ${windSpeed} ${speedUnits}`;
-}
-
-function showChanceOfRain(pop) {
-  const popDisplay = document.querySelector('.pop');
-  popDisplay.textContent = `Humidity: ${po} %`;
-}
-
-// -----------------------------------------------------------------
-
-async function renderForecastData() {
-  const forecastRequest = API.buildForecastRequest(cityName, units);
-  const forecastData = await API.getForecastData(forecastRequest);
-}
-
-renderForecastData();
-
-export { renderWeatherData, searchLocation, toggleUnit, showDateTime };
+export {
+  renderWeatherData,
+  renderForecastData,
+  searchLocation,
+  toggleUnit,
+  showDateTime,
+};

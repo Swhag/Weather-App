@@ -1,7 +1,17 @@
 import { fromUnixTime } from 'date-fns';
 
+// title case conversion
+function capitalize(words) {
+  const spacedWord = words.toLowerCase().split(' ');
+  for (let i = 0; i < spacedWord.length; i++) {
+    spacedWord[i] =
+      spacedWord[i].charAt(0).toUpperCase() + spacedWord[i].substring(1);
+  }
+  return spacedWord.join(' ');
+}
+
 function formatDate(offset, dateFormat = 'full') {
-  const unix = parseInt(Date.now().toString().slice(0, 10));
+  const unix = Number(Date.now().toString().slice(0, 10));
   const date = fromUnixTime(unix + offset).toUTCString();
   let dayOfWeek = date.slice(0, 3);
   let dayOfMonth = date.slice(5, 7);
@@ -14,7 +24,7 @@ function formatDate(offset, dateFormat = 'full') {
     dayOfMonth = dayOfMonth.slice(1);
   }
 
-  // generate correct date suffix
+  // generate date suffix
   if (dayOfMonth.slice(-1) === '1') {
     suffix = 'st';
   } else if (dayOfMonth.slice(-1) === '2') {
@@ -56,7 +66,7 @@ function formatDate(offset, dateFormat = 'full') {
 }
 
 function formatTime(offset, timeFormat = 'full') {
-  const unix = parseInt(Date.now().toString().slice(0, 10));
+  const unix = Number(Date.now().toString().slice(0, 10));
   const date = fromUnixTime(unix + offset).toUTCString();
   let hour = date.slice(17, 19);
   const minute = date.slice(20, 22);
@@ -90,4 +100,4 @@ function formatTime(offset, timeFormat = 'full') {
   return `${hour}:${minute} ${amOrPm}`;
 }
 
-export { formatDate, formatTime };
+export { capitalize, formatDate, formatTime };

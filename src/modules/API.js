@@ -1,10 +1,10 @@
 const APIkey = '46db5029dab2cdfb42a90e1bce896b95';
 
-let lat;
-let lon;
+// let lat;
+// let lon;
 
-lat = 40.7143;
-lon = -74.006;
+// lat = 40.7143;
+// lon = -74.006;
 
 // ---------------------------------------------
 
@@ -27,7 +27,6 @@ async function getForecastData(url) {
   const response = await fetch(url);
   const ForecastData = await response.json();
 
-  console.log(ForecastData);
   return ForecastData;
 }
 
