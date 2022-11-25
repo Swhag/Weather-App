@@ -2,8 +2,8 @@ import '../styles/style.css';
 import * as dom from './dom';
 
 function renderPage() {
-  dom.renderWeatherData();
-  dom.renderForecastData();
+  dom.getWeatherData();
+  dom.getForecastData();
   dom.toggleUnit();
   dom.searchLocation();
 }
@@ -13,7 +13,7 @@ setInterval(() => {
 }, 1000);
 
 setInterval(() => {
-  dom.renderWeatherData();
+  dom.getWeatherData();
 }, 1800000);
 
 renderPage();

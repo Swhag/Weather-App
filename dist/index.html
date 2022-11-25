@@ -16,69 +16,108 @@
   <body>
     <main id="main" class="background-img">
       <section class="content">
-        <!-- <h1 class="logo">Simple Weather App</h1> -->
+        <section class="content-top">
+          <div id="weather-info">
+            <div class="weather-description weather-info">description</div>
+            <div class="weather-city">city</div>
+            <div class="weather-date">date</div>
+            <div class="weather-time">time</div>
+            <div class="weather-temp">temp</div>
 
-        <div id="weather-info">
-          <div class="weather-description weather-info">description</div>
-          <div class="weather-city">city</div>
-          <div class="weather-date">date</div>
-          <div class="weather-time">time</div>
-          <div class="weather-temp">temp</div>
+            <label class="toggle" for="myToggle">
+              <input
+                class="toggle-input"
+                name=""
+                type="checkbox"
+                id="myToggle"
+              />
+              <div class="toggle-fill">
+                <span class="units">°C</span><span class="units">°F</span>
+              </div>
+            </label>
 
-          <label class="toggle" for="myToggle">
-            <input class="toggle-input" name="" type="checkbox" id="myToggle" />
-            <div class="toggle-fill">
-              <span class="units">°C</span><span class="units">°F</span>
-            </div>
-          </label>
+            <div class="weather-icon"></div>
 
-          <div class="weather-icon"></div>
-
-          <form class="search-box">
-            <input
-              class="search-box-input"
-              type="text"
-              placeholder="Search Location..."
-              name="search"
-              autocomplete="off"
-            />
-            <div class="search-icon"></div>
-          </form>
-        </div>
-
-        <container id="weather-info-side">
-          <div class="weather-info-box">
-            <div class="feels-like-icon weather-icon"></div>
-            <div>
-              <h6>Feels Like</h6>
-              <div class="side-info feels-like"></div>
-            </div>
+            <form class="search-box">
+              <input
+                class="search-box-input"
+                type="text"
+                placeholder="Search Location..."
+                name="search"
+                autocomplete="off"
+              />
+              <div class="search-icon"></div>
+            </form>
           </div>
 
-          <div class="weather-info-box">
-            <div class="humidity-icon weather-icon"></div>
-            <div>
-              <h6>Humidity</h6>
-              <div class="side-info humidity">Humidity</div>
+          <container id="weather-info-side">
+            <div class="weather-info-box">
+              <div class="feels-like-icon weather-icon"></div>
+              <div>
+                <h6>Feels Like</h6>
+                <div class="side-info feels-like"></div>
+              </div>
             </div>
-          </div>
 
-          <div class="weather-info-box">
-            <div class="wind-icon weather-icon"></div>
-            <div>
-              <h6>Wind Speed</h6>
-              <div class="side-info wind-speed"></div>
+            <div class="weather-info-box">
+              <div class="humidity-icon weather-icon"></div>
+              <div>
+                <h6>Humidity</h6>
+                <div class="side-info humidity">Humidity</div>
+              </div>
             </div>
-          </div>
 
-          <div class="weather-info-box">
-            <div class="pop-icon weather-icon"></div>
-            <div>
-              <h6>Chance of Rain</h6>
-              <div class="side-info pop"></div>
+            <div class="weather-info-box">
+              <div class="wind-icon weather-icon"></div>
+              <div>
+                <h6>Wind Speed</h6>
+                <div class="side-info wind-speed"></div>
+              </div>
             </div>
-          </div>
-        </container>
+
+            <div class="weather-info-box">
+              <div class="pop-icon weather-icon"></div>
+              <div>
+                <h6>Chance of Rain</h6>
+                <div class="side-info pop"></div>
+              </div>
+            </div>
+          </container>
+        </section>
+
+        <section class="content-bot">
+          <container id="forecast-info">
+            <div class="forecast-info-box">
+              <div class="forecast-icon-one"></div>
+              <h6>Day 1</h6>
+              <div class="side-info temp"></div>
+            </div>
+
+            <div class="forecast-info-box">
+              <div class="forecast-icon-two"></div>
+              <h6>Day 2</h6>
+              <div class="side-info temp"></div>
+            </div>
+
+            <div class="forecast-info-box">
+              <div class="forecast-icon-three"></div>
+              <h6>Day 3</h6>
+              <div class="side-info temp"></div>
+            </div>
+
+            <div class="forecast-info-box">
+              <div class="forecast-icon-four"></div>
+              <h6>Day 4</h6>
+              <div class="side-info temp"></div>
+            </div>
+
+            <div class="forecast-info-box">
+              <div class="forecast-icon-five"></div>
+              <h6>Day 5</h6>
+              <div class="side-info temp"></div>
+            </div>
+          </container>
+        </section>
       </section>
     </main>
   </body>
