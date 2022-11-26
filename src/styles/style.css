@@ -6,13 +6,36 @@
   margin: 0;
 }
 html {
-  font-size: 16px;
+  font-size: 115%;
 }
 
 body {
   font-family: 'Open Sans', sans-serif;
-  background: #fff;
-  color: #333;
+  overflow: hidden;
+}
+
+@media (max-width: 2000px) {
+  html {
+    font-size: 90%;
+  }
+}
+
+@media (max-width: 1600px) {
+  html {
+    font-size: 95%;
+  }
+}
+
+@media (max-width: 1200px) {
+  html {
+    font-size: 80%;
+  }
+}
+
+@media (max-width: 800px) {
+  html {
+    font-size: 75%;
+  }
 }
 
 ul {
@@ -25,18 +48,6 @@ a {
 }
 
 /* ------------------------------------------------ */
-
-#main {
-  position: relative;
-  color: #fff;
-  height: 100vh;
-  padding: 60px 110px;
-  display: flex;
-  flex-direction: column;
-  background: url('../images/bg4.jpg') no-repeat center center/cover;
-  z-index: 10;
-}
-
 #main::before {
   content: '';
   position: absolute;
@@ -44,14 +55,54 @@ a {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.25);
+  background: url('../images/bg4.jpg') no-repeat center center/cover;
+  animation: zoom-in-zoom-out 45s ease infinite;
+}
+
+.content {
+  position: relative;
+
+  min-height: 100vh;
+  height: auto;
+
+  padding: 40px 80px;
+  color: #fff;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  z-index: 10;
+  transition-duration: 0.5s;
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.2, 1.2);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+.content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.2);
   z-index: -10;
 }
 
 .content-top {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
 }
 
 /* ------------------------------------------------ */
@@ -98,7 +149,8 @@ a {
   --height: calc(var(--width) / 3);
   --border-radius: calc(var(--height) / 2);
 
-  /* display: inline-block; */
+  display: inline-block;
+  width: var(--width);
   cursor: pointer;
 }
 
@@ -233,7 +285,7 @@ a {
 /* ------------------------------------------------ */
 
 #forecast-info {
-  margin-top: 250px;
+  /* margin-top: 350px; */
   display: flex;
   justify-content: space-between;
 }

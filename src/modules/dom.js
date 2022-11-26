@@ -130,7 +130,7 @@ function showForecastTemp(forecastData) {
   }
 }
 
-function showForecastLow(forecastData) {
+function showForecastFeelsLike(forecastData) {
   const dayOne = document.querySelector('.day-one-low');
   const dayTwo = document.querySelector('.day-two-low');
   const dayThree = document.querySelector('.day-three-low');
@@ -142,9 +142,9 @@ function showForecastLow(forecastData) {
   let count = 7;
   for (let i = 0; i < daysArray.length; i++) {
     const currentDay = forecastData[count];
-    daysArray[i].textContent = `${Math.round(
+    daysArray[i].textContent = `Feels Like: ${Math.round(
       currentDay.main.feels_like,
-    )} ${tempUnits}`;
+    )} °`;
     count += 8;
   }
 }
@@ -192,10 +192,8 @@ async function getForecastData() {
   showChanceOfRain(forecastData.list[0].pop);
   showForecastDays(forecastData.list);
   showForecastTemp(forecastData.list);
-  showForecastLow(forecastData.list);
+  showForecastFeelsLike(forecastData.list);
   showForecastIcons(forecastData.list);
-
-  console.log(forecastData.list[10]);
 }
 
 // -----------------------------------------------------------------

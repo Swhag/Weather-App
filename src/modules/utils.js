@@ -161,7 +161,7 @@ function formatDay(unix, offset, dateFormat = 'full') {
   }
 
   // return full date string
-  return `${dayOfWeek} ${month}/${dayOfMonth}`;
+  return `${dayOfWeek} - ${month}/${dayOfMonth}`;
 }
 
 export { capitalize, formatDate, formatTime, formatDay };
