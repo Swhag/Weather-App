@@ -13,7 +13,7 @@ function buildWeatherRequest(cityName, units) {
 }
 
 function buildForecastRequest(cityName, units) {
-  return `http://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=${units}&appid=${APIkey}`;
+  return `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=${units}&appid=${APIkey}`;
 }
 
 async function getWeatherData(url) {
