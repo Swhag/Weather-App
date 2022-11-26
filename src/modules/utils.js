@@ -100,4 +100,34 @@ function formatTime(offset, timeFormat = 'full') {
   return `${hour}:${minute} ${amOrPm}`;
 }
 
-export { capitalize, formatDate, formatTime };
+function formatDay(unix, offset, dateFormat = 'full') {
+  const date = fromUnixTime(unix + offset).toUTCString();
+  let dayOfWeek = date.slice(0, 3);
+
+  // convert short day name to full day name
+  if (dayOfWeek === 'Mon') {
+    dayOfWeek = 'Monday';
+  } else if (dayOfWeek === 'Tue') {
+    dayOfWeek = 'Tuesday';
+  } else if (dayOfWeek === 'Wed') {
+    dayOfWeek = 'Wednesday';
+  } else if (dayOfWeek === 'Thu') {
+    dayOfWeek = 'Thursday';
+  } else if (dayOfWeek === 'Fri') {
+    dayOfWeek = 'Friday';
+  } else if (dayOfWeek === 'Sat') {
+    dayOfWeek = 'Saturday';
+  } else if (dayOfWeek === 'Sun') {
+    dayOfWeek = 'Sunday';
+  }
+
+  // return only the day of week
+  if (dateFormat === 'day') {
+    return dayOfWeek;
+  }
+
+  // return full date string
+  return `${dayOfWeek}`;
+}
+
+export { capitalize, formatDate, formatTime, formatDay };

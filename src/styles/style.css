@@ -58,16 +58,6 @@ a {
   flex-wrap: wrap;
 }
 
-.content-bot {
-  border: 2px solid white;
-  margin-top: 200px;
-  display: flex;
-}
-
-.forecast-info {
-  display: flex;
-}
-
 /* ------------------------------------------------ */
 
 #weather-info {
@@ -242,6 +232,22 @@ a {
 #weather-info-side .side-info {
   font-size: 1.3em;
   font-weight: 500;
+}
+
+/* bottom forecast */
+/* ------------------------------------------------ */
+
+.content-bot {
+  border: 2px solid white;
+  margin-top: 200px;
+}
+
+#forecast-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.forecast-info-box {
 }
 
 /* .error-msg {
