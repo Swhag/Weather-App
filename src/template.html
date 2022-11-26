@@ -14,7 +14,7 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
-    <main id="main" class="background-img">
+    <main id="main">
       <section class="content">
         <section class="content-top">
           <div id="weather-info">
@@ -85,44 +85,62 @@
           </container>
         </section>
 
-        <section class="content-bot">
-          <container id="forecast-info">
-            <div class="forecast-info-box">
-              <h6 class="forecast-day-one">Day 1</h6>
-              <div class="day-one-temp"></div>
-              <div class="day-one-low"></div>
-              <div class="forecast-icon-one"></div>
+        <container id="forecast-info">
+          <div class="forecast-info-box">
+            <h6 class="forecast-day-one">Day 1</h6>
+            <div class="forecast-info-right">
+              <div class="forecast-icon forecast-icon-one"></div>
+              <div>
+                <div class="forecast-temp day-one-temp"></div>
+                <div class="forecast-low day-one-low"></div>
+              </div>
             </div>
+          </div>
 
-            <div class="forecast-info-box">
-              <h6 class="forecast-day-two">Day 2</h6>
-              <div class="day-two-temp"></div>
-              <div class="day-two-low"></div>
-              <div class="forecast-icon-two"></div>
+          <div class="forecast-info-box">
+            <h6 class="forecast-day-two">Day 2</h6>
+            <div class="forecast-info-right">
+              <div class="forecast-icon forecast-icon-two"></div>
+              <div>
+                <div class="forecast-temp day-two-temp"></div>
+                <div class="forecast-low day-two-low"></div>
+              </div>
             </div>
+          </div>
 
-            <div class="forecast-info-box">
-              <h6 class="forecast-day-three">Day 3</h6>
-              <div class="day-three-temp"></div>
-              <div class="day-three-low"></div>
-              <div class="forecast-icon-three"></div>
+          <div class="forecast-info-box">
+            <h6 class="forecast-day-three">Day 3</h6>
+            <div class="forecast-info-right">
+              <div class="forecast-icon forecast-icon-three"></div>
+              <div>
+                <div class="forecast-temp day-three-temp"></div>
+                <div class="forecast-low day-three-low"></div>
+              </div>
             </div>
+          </div>
 
-            <div class="forecast-info-box">
-              <h6 class="forecast-day-four">Day 4</h6>
-              <div class="day-four-temp"></div>
-              <div class="day-four-low"></div>
-              <div class="forecast-icon-four"></div>
+          <div class="forecast-info-box">
+            <h6 class="forecast-day-four">Day 4</h6>
+            <div class="forecast-info-right">
+              <div class="forecast-icon forecast-icon-four"></div>
+              <div>
+                <div class="forecast-temp day-four-temp"></div>
+                <div class="forecast-low day-four-low"></div>
+              </div>
             </div>
+          </div>
 
-            <div class="forecast-info-box">
-              <h6 class="forecast-day-five">Day 5</h6>
-              <div class="day-five-temp"></div>
-              <div class="day-five-low"></div>
-              <div class="forecast-icon-five"></div>
+          <div class="forecast-info-box">
+            <h6 class="forecast-day-five">Day 5</h6>
+            <div class="forecast-info-right">
+              <div class="forecast-icon forecast-icon-five"></div>
+              <div>
+                <div class="forecast-temp day-five-temp"></div>
+                <div class="forecast-low day-five-low"></div>
+              </div>
             </div>
-          </container>
-        </section>
+          </div>
+        </container>
       </section>
     </main>
   </body>

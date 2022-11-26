@@ -103,11 +103,11 @@ function showForecastDays(forecastData) {
   const fiveDaysArray = [dayOne, dayTwo, dayThree, dayFour, dayFive];
 
   // Increment of 8 means 24 hours later or the following day.
-  let daysCount = 7;
+  let count = 7;
   for (let i = 0; i < fiveDaysArray.length; i++) {
-    const currentDay = forecastData[daysCount];
+    const currentDay = forecastData[count];
     fiveDaysArray[i].textContent = utils.formatDay(currentDay.dt, timezone);
-    daysCount += 8;
+    count += 8;
   }
 }
 
@@ -120,11 +120,13 @@ function showForecastTemp(forecastData) {
   const daysArray = [dayOne, dayTwo, dayThree, dayFour, dayFive];
 
   // Increment of 8 means 24 hours later or the following day.
-  let daysCount = 7;
+  let count = 7;
   for (let i = 0; i < daysArray.length; i++) {
-    const currentDay = forecastData[daysCount];
-    daysArray[i].textContent = `${currentDay.main.temp} ${tempUnits}`;
-    daysCount += 8;
+    const currentDay = forecastData[count];
+    daysArray[i].textContent = `${Math.round(
+      currentDay.main.temp,
+    )} ${tempUnits}`;
+    count += 8;
   }
 }
 
@@ -137,11 +139,13 @@ function showForecastLow(forecastData) {
   const daysArray = [dayOne, dayTwo, dayThree, dayFour, dayFive];
 
   // Increment of 8 means 24 hours later or the following day.
-  let daysCount = 7;
+  let count = 7;
   for (let i = 0; i < daysArray.length; i++) {
-    const currentDay = forecastData[daysCount];
-    daysArray[i].textContent = `${currentDay.main.feels_like} ${tempUnits}`;
-    daysCount += 8;
+    const currentDay = forecastData[count];
+    daysArray[i].textContent = `${Math.round(
+      currentDay.main.feels_like,
+    )} ${tempUnits}`;
+    count += 8;
   }
 }
 
@@ -156,11 +160,11 @@ function showForecastIcons(forecastData) {
   const daysArray = [dayOne, dayTwo, dayThree, dayFour, dayFive];
 
   // Increment of 8 means 24 hours later or the following day.
-  let daysCount = 7;
+  let count = 7;
   for (let i = 0; i < daysArray.length; i++) {
-    const currentDay = forecastData[daysCount];
+    const currentDay = forecastData[count];
     daysArray[i].innerHTML = icons.getIcon(currentDay.weather[0].icon);
-    daysCount += 8;
+    count += 8;
   }
 }
 

@@ -27,9 +27,12 @@ a {
 /* ------------------------------------------------ */
 
 #main {
-  height: 100vh;
   position: relative;
   color: #fff;
+  height: 100vh;
+  padding: 60px 110px;
+  display: flex;
+  flex-direction: column;
   background: url('../images/bg4.jpg') no-repeat center center/cover;
   z-index: 10;
 }
@@ -43,13 +46,6 @@ a {
   height: 100%;
   background: rgba(0, 0, 0, 0.25);
   z-index: -10;
-}
-
-.content {
-  padding: 60px 110px;
-
-  display: flex;
-  flex-direction: column;
 }
 
 .content-top {
@@ -205,7 +201,6 @@ a {
 /* ------------------------------------------------ */
 
 #weather-info-side {
-  /* border: 2px solid white; */
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -237,19 +232,47 @@ a {
 /* bottom forecast */
 /* ------------------------------------------------ */
 
-.content-bot {
-  /* border: 2px solid white; */
-  margin-top: 200px;
-}
-
 #forecast-info {
+  margin-top: 250px;
   display: flex;
   justify-content: space-between;
 }
 
-.forecast-info-box {
+#forecast-info .forecast-info-box {
+  border-left: 5px solid #fff;
+  padding-left: 20px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+#forecast-info .forecast-info-right {
+  display: flex;
+  align-items: center;
+}
+
+#forecast-info .forecast-info-box h6 {
+  font-size: 1rem;
+}
+
+#forecast-info .forecast-temp {
+  margin-top: 10px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.forecast-low {
+  margin-top: 10px;
+  font-size: 0.8rem;
+}
+
+#forecast-info .forecast-icon {
+  margin: 10px 20px 0px 0px;
+  width: 3.6rem;
+}
+
+#forecast-info .forecast-icon:hover {
+  transform: scale(1.05);
 }
 
 /* .error-msg {
