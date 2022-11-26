@@ -105,29 +105,61 @@ function showForecastDays(forecastData) {
   // Increment of 8 means 24 hours later or the following day.
   let daysCount = 7;
   for (let i = 0; i < fiveDaysArray.length; i++) {
-    fiveDaysArray[i].textContent = utils.formatDay(
-      forecastData[daysCount].dt,
-      timezone,
-    );
+    const currentDay = forecastData[daysCount];
+    fiveDaysArray[i].textContent = utils.formatDay(currentDay.dt, timezone);
     daysCount += 8;
   }
 }
 
 function showForecastTemp(forecastData) {
-  const dayOne = document.querySelector('.forecast-day-one');
-  const dayTwo = document.querySelector('.forecast-day-two');
-  const dayThree = document.querySelector('.forecast-day-three');
-  const dayFour = document.querySelector('.forecast-day-four');
-  const dayFive = document.querySelector('.forecast-day-five');
-  const fiveDaysArray = [dayOne, dayTwo, dayThree, dayFour, dayFive];
+  const dayOne = document.querySelector('.day-one-temp');
+  const dayTwo = document.querySelector('.day-two-temp');
+  const dayThree = document.querySelector('.day-three-temp');
+  const dayFour = document.querySelector('.day-four-temp');
+  const dayFive = document.querySelector('.day-five-temp');
+  const daysArray = [dayOne, dayTwo, dayThree, dayFour, dayFive];
 
   // Increment of 8 means 24 hours later or the following day.
   let daysCount = 7;
-  for (let i = 0; i < fiveDaysArray.length; i++) {
-    fiveDaysArray[i].textContent = utils.formatDay(
-      forecastData[daysCount].dt,
-      timezone,
-    );
+  for (let i = 0; i < daysArray.length; i++) {
+    const currentDay = forecastData[daysCount];
+    daysArray[i].textContent = `${currentDay.main.temp} ${tempUnits}`;
+    daysCount += 8;
+  }
+}
+
+function showForecastLow(forecastData) {
+  const dayOne = document.querySelector('.day-one-low');
+  const dayTwo = document.querySelector('.day-two-low');
+  const dayThree = document.querySelector('.day-three-low');
+  const dayFour = document.querySelector('.day-four-low');
+  const dayFive = document.querySelector('.day-five-low');
+  const daysArray = [dayOne, dayTwo, dayThree, dayFour, dayFive];
+
+  // Increment of 8 means 24 hours later or the following day.
+  let daysCount = 7;
+  for (let i = 0; i < daysArray.length; i++) {
+    const currentDay = forecastData[daysCount];
+    daysArray[i].textContent = `${currentDay.main.feels_like} ${tempUnits}`;
+    daysCount += 8;
+  }
+}
+
+// console.log(forecastData[39].main.feels_like);
+
+function showForecastIcons(forecastData) {
+  const dayOne = document.querySelector('.forecast-icon-one');
+  const dayTwo = document.querySelector('.forecast-icon-two');
+  const dayThree = document.querySelector('.forecast-icon-three');
+  const dayFour = document.querySelector('.forecast-icon-four');
+  const dayFive = document.querySelector('.forecast-icon-five');
+  const daysArray = [dayOne, dayTwo, dayThree, dayFour, dayFive];
+
+  // Increment of 8 means 24 hours later or the following day.
+  let daysCount = 7;
+  for (let i = 0; i < daysArray.length; i++) {
+    const currentDay = forecastData[daysCount];
+    daysArray[i].innerHTML = icons.getIcon(currentDay.weather[0].icon);
     daysCount += 8;
   }
 }
@@ -154,15 +186,12 @@ async function getForecastData() {
   const forecastData = await API.getForecastData(forecastRequest);
 
   showChanceOfRain(forecastData.list[0].pop);
-  // console.log(forecastData);
-
   showForecastDays(forecastData.list);
+  showForecastTemp(forecastData.list);
+  showForecastLow(forecastData.list);
+  showForecastIcons(forecastData.list);
 
-  // console.log(forecastData.list[7]);
-  // console.log(forecastData.list[15]);
-  // console.log(forecastData.list[23]);
-  // console.log(forecastData.list[31]);
-  // console.log(forecastData.list[39]);
+  console.log(forecastData.list[10]);
 }
 
 // -----------------------------------------------------------------
@@ -180,6 +209,7 @@ function toggleUnit() {
       speedUnits = 'mph';
     }
     getWeatherData();
+    getForecastData();
   });
 }
 

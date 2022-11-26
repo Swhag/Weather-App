@@ -103,6 +103,7 @@ function formatTime(offset, timeFormat = 'full') {
 function formatDay(unix, offset, dateFormat = 'full') {
   const date = fromUnixTime(unix + offset).toUTCString();
   let dayOfWeek = date.slice(0, 3);
+  let dayOfMonth = date.slice(5, 7);
 
   // convert short day name to full day name
   if (dayOfWeek === 'Mon') {
@@ -127,7 +128,7 @@ function formatDay(unix, offset, dateFormat = 'full') {
   }
 
   // return full date string
-  return `${dayOfWeek}`;
+  return `${dayOfWeek} ${dayOfMonth}`;
 }
 
 export { capitalize, formatDate, formatTime, formatDay };
