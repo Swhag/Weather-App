@@ -6,35 +6,39 @@
   margin: 0;
 }
 html {
-  font-size: 115%;
+  font-size: 120%;
 }
 
 body {
   font-family: 'Open Sans', sans-serif;
-  overflow: hidden;
 }
 
-@media (max-width: 2000px) {
+@media (max-width: 1700px) {
   html {
-    font-size: 90%;
-  }
-}
-
-@media (max-width: 1600px) {
-  html {
-    font-size: 95%;
+    font-size: 70%;
   }
 }
 
 @media (max-width: 1200px) {
   html {
-    font-size: 80%;
+    font-size: 120%;
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   html {
-    font-size: 75%;
+    font-size: 90%;
+  }
+}
+@media (max-width: 600px) {
+  html {
+    font-size: 70%;
+  }
+}
+
+@media (max-width: 350px) {
+  html {
+    font-size: 50%;
   }
 }
 
@@ -48,6 +52,12 @@ a {
 }
 
 /* ------------------------------------------------ */
+#main {
+  position: relative;
+  min-height: 100vh;
+  height: auto;
+  overflow: hidden;
+}
 #main::before {
   content: '';
   position: absolute;
@@ -259,9 +269,9 @@ a {
 }
 
 #weather-info-side .weather-info-box {
-  gap: 10px;
   display: flex;
   align-items: flex-end;
+  gap: 10px;
 }
 
 #weather-info-side .weather-icon {
@@ -285,7 +295,6 @@ a {
 /* ------------------------------------------------ */
 
 #forecast-info {
-  /* margin-top: 350px; */
   display: flex;
   justify-content: space-between;
 }
@@ -313,7 +322,7 @@ a {
   font-weight: 600;
 }
 
-.forecast-low {
+#forecast-info .forecast-low {
   margin-top: 10px;
   font-size: 0.8rem;
 }
@@ -325,6 +334,46 @@ a {
 
 #forecast-info .forecast-icon:hover {
   transform: scale(1.05);
+}
+
+@media (max-width: 1200px) {
+  .content {
+    padding: 30px;
+  }
+
+  .weather-description {
+    margin-left: -2px;
+  }
+
+  #forecast-info {
+    display: flex;
+    margin: 20px auto;
+    padding: 10px;
+    flex-direction: column;
+  }
+
+  #forecast-info .forecast-temp {
+    margin-top: 10px;
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+
+  #forecast-info .forecast-info-box {
+    border: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 50px;
+  }
+
+  #forecast-info .forecast-icon {
+    width: 2.4rem;
+  }
+
+  #forecast-info .forecast-low {
+    margin-top: 0px;
+    font-size: 0.8rem;
+  }
 }
 
 /* .error-msg {
