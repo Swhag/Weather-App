@@ -6,22 +6,24 @@
   margin: 0;
 }
 html {
-  font-size: 120%;
+  font-size: 100%;
 }
 
 body {
   font-family: 'Open Sans', sans-serif;
 }
 
-@media (max-width: 1700px) {
+@media (min-width: 1921px) {
   html {
-    font-size: 70%;
+    font-size: 120%;
   }
 }
 
+/* ------------------------------ */
+
 @media (max-width: 1200px) {
   html {
-    font-size: 120%;
+    font-size: 150%;
   }
 }
 
