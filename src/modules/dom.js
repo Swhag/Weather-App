@@ -3,6 +3,7 @@ import * as utils from './utils';
 import * as icons from './icons';
 
 let cityName = 'New York';
+let lastCityName = 'New York';
 let units = 'imperial';
 let tempUnits = '°F';
 let speedUnits = 'mph';
@@ -169,31 +170,41 @@ function showForecastIcons(forecastData) {
 }
 
 async function getWeatherData() {
-  const weatherRequest = API.buildWeatherRequest(cityName, units);
-  const weatherData = await API.getWeatherData(weatherRequest);
+  try {
+    const weatherRequest = API.buildWeatherRequest(cityName, units);
+    const weatherData = await API.getWeatherData(weatherRequest);
 
-  showWeatherDescription(weatherData.weather[0].description);
-  showName(weatherData.name);
-  showTemp(weatherData.main.temp);
-  showIcon(weatherData.weather[0].icon);
-  timezone = weatherData.timezone;
-  showDateTime();
-  showFeelsLikeTemp(weatherData.main.feels_like);
-  showHumidity(weatherData.main.humidity);
-  getWindData();
-
+    showWeatherDescription(weatherData.weather[0].description);
+    showName();
+    showTemp(weatherData.main.temp);
+    showIcon(weatherData.weather[0].icon);
+    timezone = weatherData.timezone;
+    showDateTime();
+    showFeelsLikeTemp(weatherData.main.feels_like);
+    showHumidity(weatherData.main.humidity);
+    getWindData();
+    lastCityName = cityName;
+    console.log(lastCityName);
+  } catch (error) {
+    console.log(`Invalid city name. Please try again.`);
+    cityName = lastCityName;
+  }
   // console.log(weatherData);
 }
 
 async function getForecastData() {
-  const forecastRequest = API.buildForecastRequest(cityName, units);
-  const forecastData = await API.getForecastData(forecastRequest);
+  try {
+    const forecastRequest = API.buildForecastRequest(cityName, units);
+    const forecastData = await API.getForecastData(forecastRequest);
 
-  showChanceOfRain(forecastData.list[0].pop);
-  showForecastDays(forecastData.list);
-  showForecastTemp(forecastData.list);
-  showForecastFeelsLike(forecastData.list);
-  showForecastIcons(forecastData.list);
+    showChanceOfRain(forecastData.list[0].pop);
+    showForecastDays(forecastData.list);
+    showForecastTemp(forecastData.list);
+    showForecastFeelsLike(forecastData.list);
+    showForecastIcons(forecastData.list);
+  } catch (error) {
+    console.log(`Invalid city name. Unable to fetch forecast data`);
+  }
 }
 
 // -----------------------------------------------------------------
@@ -219,6 +230,23 @@ function searchLocation() {
   const searchBar = document.querySelector('.search-box-input');
   document.addEventListener('submit', (e) => {
     e.preventDefault();
+    if (searchBar.value === '') {
+      return;
+    }
+    cityName = searchBar.value;
+    searchBar.value = '';
+    getWeatherData();
+    getForecastData();
+  });
+}
+
+function searchLocationByIcon() {
+  const searchIcon = document.querySelector('.search-icon');
+  const searchBar = document.querySelector('.search-box-input');
+  searchIcon.addEventListener('click', () => {
+    if (searchBar.value === '') {
+      return;
+    }
     cityName = searchBar.value;
     searchBar.value = '';
     getWeatherData();
@@ -230,7 +258,8 @@ export {
   getWindData,
   getWeatherData,
   getForecastData,
-  searchLocation,
   toggleUnit,
   showDateTime,
+  searchLocation,
+  searchLocationByIcon,
 };

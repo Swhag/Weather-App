@@ -6,6 +6,7 @@ function renderPage() {
   dom.getForecastData();
   dom.toggleUnit();
   dom.searchLocation();
+  dom.searchLocationByIcon();
 }
 
 setInterval(() => {
