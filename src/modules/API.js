@@ -1,11 +1,5 @@
 const APIkey = '46db5029dab2cdfb42a90e1bce896b95';
 
-// let lat;
-// let lon;
-
-// lat = 40.7143;
-// lon = -74.006;
-
 // ---------------------------------------------
 
 function buildWeatherRequest(cityName, units) {
