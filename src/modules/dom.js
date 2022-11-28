@@ -28,14 +28,19 @@ function showDateTime() {
   timeDisplay.textContent = utils.formatTime(timezone);
 }
 
+function showIcon(icon) {
+  const weatherIcon = document.querySelector('.weather-icon');
+  weatherIcon.innerHTML = icons.getIcon(icon);
+}
+
 function showTemp(temperature) {
   const tempDisplay = document.querySelector('.weather-temp');
   tempDisplay.textContent = `${Math.round(temperature)} ${tempUnits}`;
 }
 
-function showIcon(icon) {
-  const weatherIcon = document.querySelector('.weather-icon');
-  weatherIcon.innerHTML = icons.getIcon(icon);
+function showError(message) {
+  const errorMessage = document.querySelector('.error-message');
+  errorMessage.textContent = `${message}`;
 }
 
 // -----------------------------------------------------------------
@@ -184,9 +189,8 @@ async function getWeatherData() {
     showHumidity(weatherData.main.humidity);
     getWindData();
     lastCityName = cityName;
-    console.log(lastCityName);
   } catch (error) {
-    console.log(`Invalid city name. Please try again.`);
+    showError(`Invalid city name. Please try again.`);
     cityName = lastCityName;
   }
   // console.log(weatherData);
