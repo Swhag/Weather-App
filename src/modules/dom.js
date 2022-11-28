@@ -38,7 +38,7 @@ function showTemp(temperature) {
   tempDisplay.textContent = `${Math.round(temperature)} ${tempUnits}`;
 }
 
-function showError(message) {
+function showMessage(message) {
   const errorMessage = document.querySelector('.error-message');
   errorMessage.textContent = `${message}`;
 }
@@ -188,9 +188,10 @@ async function getWeatherData() {
     showFeelsLikeTemp(weatherData.main.feels_like);
     showHumidity(weatherData.main.humidity);
     getWindData();
+    showMessage('');
     lastCityName = cityName;
   } catch (error) {
-    showError(`Invalid city name. Please try again.`);
+    showMessage(`Invalid city name. Please try again.`);
     cityName = lastCityName;
   }
   // console.log(weatherData);
