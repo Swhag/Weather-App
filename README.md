@@ -6,6 +6,6 @@ Search a location for forecast data.
 - Display data in metric / imperial units.
 - Render appropriate weather icons for each forecast description.
 
-Live demo: https://swhag.github.io/Weather-App/
+[Live App](https://swhag.github.io/Weather-App/)
 
 ![alt text](https://github.com/Swhag/Weather-App/blob/main/src/images/Weather%20App%20Preview.PNG 'App Preview')
