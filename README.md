@@ -1,4 +1,4 @@
-Simple Weather App
+# Simple Weather App
 
 Search a location for forecast data.
 
