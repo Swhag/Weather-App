@@ -1,7 +1,8 @@
 # Simple Weather App
 
-Search a location for forecast data.
+## Features
 
+- Search location to load forecast data.
 - Display daily forecast data for a given location.
 - Display data in metric / imperial units.
 - Render appropriate weather icons for each forecast description.
