@@ -2,7 +2,7 @@
 
 ## Features
 
-- Search location to load forecast data.
+- Search location to load forecast data (OpenWeatherMap API calls).
 - Display daily forecast data for a given location.
 - Display data in metric / imperial units.
 - Render appropriate weather icons for each forecast description.
