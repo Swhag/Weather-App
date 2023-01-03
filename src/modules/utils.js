@@ -135,7 +135,7 @@ function formatDay(unix, offset, dateFormat = 'full') {
 
   // convert month name to number
   if (month === 'Jan') {
-    month = '1month';
+    month = '1';
   } else if (month === 'Feb') {
     month = '2';
   } else if (month === 'Mar') {
