@@ -7,6 +7,6 @@
 - Display data in metric / imperial units.
 - Render appropriate weather icons for each forecast description.
 
-Click Here: [Live App](https://swhag.github.io/Weather-App/) :point_left:
+Click Here: [Live Demo](https://swhag.github.io/Weather-App/) :point_left:
 
 ![alt text](https://github.com/Swhag/Weather-App/blob/main/src/images/Weather%20App%20Preview.PNG 'App Preview')
