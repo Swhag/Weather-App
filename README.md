@@ -14,4 +14,4 @@ Utilized JavaScript Async/Await function, API fetch calls and DOM manipulation.
 
 Click Here: [Live Demo](https://swhag.github.io/Weather-App/) :point_left:
 
-![alt text](https://github.com/Swhag/Weather-App/blob/main/src/images/Weather%20App%20Preview.PNG 'App Preview')
+https://user-images.githubusercontent.com/109196962/215964747-22f25fd4-d258-47a4-b5be-9540f34613bb.mp4
