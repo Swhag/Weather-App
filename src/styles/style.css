@@ -57,8 +57,7 @@ a {
 /* ------------------------------------------------ */
 #main {
   position: relative;
-  max-height: 100vh;
-  height: auto;
+  max-height: 90vh;
   overflow: hidden;
 }
 
