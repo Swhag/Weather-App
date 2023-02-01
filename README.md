@@ -1,5 +1,9 @@
 # Simple Weather App
 
+### Description
+
+Simple weather Web App build using HTML/CSS/JavaScript. Utilizaed JavaScript Async/Await function, API fetch calls and DOM manipulation.
+
 ## Features
 
 - Search location to load forecast data (OpenWeatherMap API calls).
