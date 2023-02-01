@@ -2,7 +2,7 @@
 
 ### Description
 
-Simple weather Web App build using HTML/CSS/JavaScript.
+Simple weather Web App build using HTML/CSS/JavaScript.<br>
 Utilized JavaScript Async/Await function, API fetch calls and DOM manipulation.
 
 ## Features
