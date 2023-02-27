@@ -4,8 +4,11 @@ Click Here: [Live Demo](https://swhag.github.io/Weather-App/) :point_left:
 
 ### Description
 
-Simple weather Web App build using HTML/CSS/JavaScript.<br>
-Utilized JavaScript Async/Await function, API fetch calls and DOM manipulation.
+This is a straightforward weather web application developed using
+HTML, CSS, and JavaScript. Users can toggle between imperial and
+metric systems and select different locations. utilized JavaScript
+Async/Await function, OpenWeatherMap API calls, and DOM manipulation
+techniques.
 
 ## Features
 
