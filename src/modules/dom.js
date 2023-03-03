@@ -180,6 +180,7 @@ async function getWeatherData() {
     const weatherData = await API.getWeatherData(weatherRequest);
 
     showWeatherDescription(weatherData.weather[0].description);
+
     showName();
     showTemp(weatherData.main.temp);
     showIcon(weatherData.weather[0].icon);
@@ -194,13 +195,14 @@ async function getWeatherData() {
     showMessage(`Invalid city name. Please try again.`);
     cityName = lastCityName;
   }
-  // console.log(weatherData);
 }
 
 async function getForecastData() {
   try {
     const forecastRequest = API.buildForecastRequest(cityName, units);
     const forecastData = await API.getForecastData(forecastRequest);
+
+    console.log(forecastData);
 
     showChanceOfRain(forecastData.list[0].pop);
     showForecastDays(forecastData.list);
