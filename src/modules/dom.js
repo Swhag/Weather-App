@@ -73,7 +73,7 @@ function showChanceOfRain(pop) {
   const popDisplay = document.querySelector('.pop');
   const showPopDisplay = document.querySelector('.pop-icon');
 
-  popDisplay.textContent = `${pop * 100} %`;
+  popDisplay.textContent = `${Math.round(pop * 100)} %`;
   showPopDisplay.innerHTML = icons.popIcon;
 }
 
