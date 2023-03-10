@@ -17,7 +17,7 @@ async function getWeatherData(url) {
   return weatherData;
 }
 
-async function getForecastData(url) {
+  async function getForecastData(url) {
   const response = await fetch(url);
   const ForecastData = await response.json();
 
