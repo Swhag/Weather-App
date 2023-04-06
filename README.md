@@ -1,6 +1,6 @@
 # Simple Weather App
 
-Please checkout the new Weather Dashboard React App: [Cloud9 - weather dashboard](https://github.com/Swhag/Cloud9) :point_left:
+Please checkout the new React weather app instead: [Cloud9 - Weather Dashboard](https://github.com/Swhag/Cloud9) :point_left:
 
 ### Description
 
